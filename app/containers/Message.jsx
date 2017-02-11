@@ -8,11 +8,11 @@ const cx = classNames.bind(styles);
 
 const Message = ({message, type, dismissMessage}) => (
   <div
-    className={cx('message', {
+  className={cx('message', {
       show: message && message.length > 0,
       success: type === 'SUCCESS'
-    })}
-    onClick={dismissMessage}>{message}</div>
+  })}
+  onClick={dismissMessage}>{message}</div>
 );
 
 Message.propTypes = {
