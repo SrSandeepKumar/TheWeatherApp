@@ -6,8 +6,7 @@ import appleFavicon from '../images/weather144.png';
 import msFavicon from '../images/weather144.png';
 import favicon from '../images/favicon.png';
 import { isProduction } from '../../config/app';
-
-debugger;
+import manifest from '../../manifest.json';
 
 const metaAssets = () => {
   return [
@@ -42,6 +41,8 @@ const metaAssets = () => {
 
 const linkAssets = () => {
   const links = [
+    // Adding manifest filter
+    { rel: 'manifest', href: manifest },
     // Add to homescreen for Chrome on Android
     { rel: 'icon', href: favicon },
     { rel: 'icon', sizes: '192x192', href: chromeFavicon },
