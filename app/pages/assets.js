@@ -1,11 +1,13 @@
 /* Based on the template in Web Starter Kit :
 https://github.com/google/web-starter-kit/blob/master/app/index.html
 */
-import chromeFavicon from '../images/chrome-ninja192-precomposed.png';
-import appleFavicon from '../images/apple-ninja152-precomposed.png';
-import msFavicon from '../images/ms-ninja144-precomposed.png';
+import chromeFavicon from '../images/weather192.png';
+import appleFavicon from '../images/weather144.png';
+import msFavicon from '../images/weather144.png';
 import favicon from '../images/favicon.png';
 import { isProduction } from '../../config/app';
+
+debugger;
 
 const metaAssets = () => {
   return [

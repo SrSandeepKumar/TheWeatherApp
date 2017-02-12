@@ -7,7 +7,7 @@ import { createAppScript, createTrackingScript } from './createScripts';
 
 const createApp = (store, props) => renderToString(
   <Provider store={store}>
-    <RouterContext {...props} />
+      <RouterContext {...props} />
   </Provider>
 );
 
@@ -16,7 +16,7 @@ const buildPage = ({ componentHTML, initialState, headAssets }) => {
 <!doctype html>
 <html>
   <head>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Weather">
