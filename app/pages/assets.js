@@ -41,8 +41,6 @@ const metaAssets = () => {
 
 const linkAssets = () => {
   const links = [
-    // Adding manifest filter
-    { rel: 'manifest', href: manifest },
     // Add to homescreen for Chrome on Android
     { rel: 'icon', href: favicon },
     { rel: 'icon', sizes: '192x192', href: chromeFavicon },
