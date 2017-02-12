@@ -1,0 +1,35 @@
+{
+  "name": "The Weather App.",
+  "short_name": "Weather",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#47CFCA",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/djgnze1er/image/upload/v1486893392/weather192_offlpk.png",
+      "sizes": "192*192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/djgnze1er/image/upload/v1486893391/weather144_pc5lh9.png",
+      "sizes": "144*144",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/djgnze1er/image/upload/v1486893390/weather96_nkppkk.png",
+      "sizes": "96*96",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/djgnze1er/image/upload/v1486893388/weather72_tpwojy.png",
+      "sizes": "72*72",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/djgnze1er/image/upload/v1486893387/weather46_oedrsy.png",
+      "sizes": "46*46",
+      "type": "image/png"
+    }
+  ]
+}
