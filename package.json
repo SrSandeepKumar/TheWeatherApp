@@ -16,7 +16,7 @@
     "test": "cross-env NODE_ENV=test karma start ./app/tests/karma.conf.js",
     "test:watch": "cross-env NODE_ENV=test npm test -- --watch --no-single-run"
   },
-  "author": "Choon Ken Ding",
+  "author": "Sandeep Kumr H R",
   "license": "MIT",
   "devDependencies": {
     "enzyme": "^2.4.1",
