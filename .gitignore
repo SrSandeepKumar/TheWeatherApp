@@ -6,3 +6,5 @@ public
 compiled
 .swp
 .vscode
+config/secrets.js
+theweatherapp/
