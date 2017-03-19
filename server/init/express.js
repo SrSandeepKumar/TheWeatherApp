@@ -26,6 +26,7 @@ export default (app) => {
   app.use(methodOverride());
 
   app.use(express.static(path.join(process.cwd(), 'public')));
+  app.use('/serviceWorker.js', express.static(path.join(process.cwd(), 'serviceWorker.js')));
 
   // I am adding this here so that the Heroku deploy will work
   // Indicates the app is behind a front-facing proxy,

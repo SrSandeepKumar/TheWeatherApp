@@ -43,12 +43,11 @@ module.exports = (env = '') => {
   };
 
   const swProdTranspiler = {
-    devtool: 'source-map',
+    devtool: 'sourcemap',
     context: PATHS.app,
     entry: { serviceWorker: '../sw' },
     target: 'node',
     node,
-    externals,
     output: {
       path: PATHS.root,
       filename: '[name].js',
@@ -61,21 +60,19 @@ module.exports = (env = '') => {
   };
 
   const swDevTranspiler = {
-    devtool: 'source-map',
+    devtool: 'sourcemap',
     context: PATHS.app,
     entry: { serviceWorker: '../sw' },
     target: 'node',
     node,
-    externals,
     output: {
       path: PATHS.root,
       filename: '[name].js',
-      publicPath: PATHS.root,
-      libraryTarget: 'commonjs2'
+      publicPath: PATHS.root
     },
-    module: { rules: rules({ production: false, browser: false }) },
+    module: { rules: rules({ production: false, browser: true }) },
     resolve,
-    plugins: plugins({ production: false, browser: false })
+    plugins: plugins({ production: false, browser: true })
   };
 
   const devServerRender = {
@@ -87,10 +84,8 @@ module.exports = (env = '') => {
     externals,
     output: {
       path: PATHS.compiled,
-
       filename: '[name].dev.js',
-      publicPath: PATHS.public,
-      libraryTarget: 'commonjs2',
+      publicPath: PATHS.public
     },
     module: { rules: rules({ production: false, browser: false }) },
     resolve,
@@ -100,7 +95,7 @@ module.exports = (env = '') => {
   const prodBrowserRender = {
     devtool: 'cheap-module-source-map',
     context: PATHS.app,
-    entry: { app: ['./client'], serviceWorker: ['../sw'] },
+    entry: { app: ['./client'] },
     node,
     output: {
       path: PATHS.assets,
@@ -116,7 +111,7 @@ module.exports = (env = '') => {
   const devBrowserRender = {
     devtool: 'eval',
     context: PATHS.app,
-    entry: { app: ['./client', hotMiddlewareScript], serviceWorker: ['../sw'] },
+    entry: { app: ['./client', hotMiddlewareScript] },
     node,
     output: {
       path: PATHS.assets,
