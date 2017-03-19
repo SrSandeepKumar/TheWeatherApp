@@ -1,7 +1,7 @@
 import { GOOGLE_ANALYTICS_ID } from '../../config/env';
 
 const createAppScript = () => {
-  return '<script type="text/javascript" charset="utf-8" src="/assets/app.js"></script>';
+  return '<script type="text/javascript" charset="utf-8" src="/assets/app.js"></script> <script type="text/javascript" charset="utf-8" src="/serviceWorker.js"></script>';
 };
 
 const createTrackingScript = () => {
@@ -17,4 +17,3 @@ ga('send', 'pageview');
 <script async src='https://www.google-analytics.com/analytics.js'></script>`;
 
 export { createTrackingScript, createAppScript };
-

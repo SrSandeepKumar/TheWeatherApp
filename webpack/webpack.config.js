@@ -42,10 +42,65 @@ module.exports = (env = '') => {
     plugins: plugins({ production: true, browser: false })
   };
 
+  const swProdTranspiler = {
+    devtool: 'source-map',
+    context: PATHS.app,
+    entry: { serviceWorker: '../sw' },
+    target: 'node',
+    node,
+    externals,
+    output: {
+      path: PATHS.root,
+      filename: '[name].js',
+      publicPath: PATHS.root,
+      libraryTarget: 'commonjs2'
+    },
+    module: { rules: rules({ production: true, browser: false }) },
+    resolve,
+    plugins: plugins({ production: true, browser: false })
+  };
+
+  const swDevTranspiler = {
+    devtool: 'source-map',
+    context: PATHS.app,
+    entry: { serviceWorker: '../sw' },
+    target: 'node',
+    node,
+    externals,
+    output: {
+      path: PATHS.root,
+      filename: '[name].js',
+      publicPath: PATHS.root,
+      libraryTarget: 'commonjs2'
+    },
+    module: { rules: rules({ production: false, browser: false }) },
+    resolve,
+    plugins: plugins({ production: false, browser: false })
+  };
+
+  const devServerRender = {
+    devtool: 'sourcemap',
+    context: PATHS.app,
+    entry: { server: '../server/index' },
+    target: 'node',
+    node,
+    externals,
+    output: {
+      path: PATHS.compiled,
+
+      filename: '[name].dev.js',
+      publicPath: PATHS.public,
+      libraryTarget: 'commonjs2',
+    },
+    module: { rules: rules({ production: false, browser: false }) },
+    resolve,
+    plugins: plugins({ production: false, browser: false })
+  };
+
   const prodBrowserRender = {
     devtool: 'cheap-module-source-map',
     context: PATHS.app,
-    entry: { app: ['./client'] },
+    entry: { app: ['./client'], serviceWorker: ['../sw'] },
     node,
     output: {
       path: PATHS.assets,
@@ -61,7 +116,7 @@ module.exports = (env = '') => {
   const devBrowserRender = {
     devtool: 'eval',
     context: PATHS.app,
-    entry: { app: ['./client', hotMiddlewareScript] },
+    entry: { app: ['./client', hotMiddlewareScript], serviceWorker: ['../sw'] },
     node,
     output: {
       path: PATHS.assets,
@@ -73,26 +128,8 @@ module.exports = (env = '') => {
     plugins: plugins({ production: false, browser: true })
   };
 
-  const devServerRender = {
-    devtool: 'sourcemap',
-    context: PATHS.app,
-    entry: { server: '../server/index' },
-    target: 'node',
-    node,
-    externals,
-    output: {
-      path: PATHS.compiled,
-      filename: '[name].dev.js',
-      publicPath: PATHS.public,
-      libraryTarget: 'commonjs2',
-    },
-    module: { rules: rules({ production: false, browser: false }) },
-    resolve,
-    plugins: plugins({ production: false, browser: false })
-  };
-
-  const prodConfig = [prodBrowserRender, prodServerRender];
-  const devConfig = isBrowser ? devBrowserRender : devServerRender;
+  const prodConfig = [prodBrowserRender, prodServerRender, swProdTranspiler];
+  const devConfig = isBrowser ? devBrowserRender : [ devServerRender, swDevTranspiler];
   const configuration = isProduction ? prodConfig : devConfig;
 
   return configuration;

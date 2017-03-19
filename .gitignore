@@ -8,3 +8,5 @@ compiled
 .vscode
 config/secrets.js
 theweatherapp/
+serviceWorker.js
+serviceWorker.js.map

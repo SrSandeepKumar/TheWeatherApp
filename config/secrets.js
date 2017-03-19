@@ -7,4 +7,5 @@ export const google = {
   clientSecret: process.env.GOOGLE_SECRET || '6cKCWD75gHgzCvM4VQyR5_TU',
   callbackURL: process.env.GOOGLE_CALLBACK || '/auth/google/callback'
 };
+export const openweathermapAPIKey = '9d6d89f089730ba5e679b6f5734ad774';
 
