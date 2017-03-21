@@ -51,8 +51,7 @@ module.exports = (env = '') => {
     output: {
       path: PATHS.root,
       filename: '[name].js',
-      publicPath: PATHS.root,
-      libraryTarget: 'commonjs2'
+      publicPath: PATHS.root
     },
     module: { rules: rules({ production: true, browser: false }) },
     resolve,
