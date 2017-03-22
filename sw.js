@@ -9,4 +9,10 @@ if ('serviceWorker' in navigator) {
       console.log('ServiceWorker registration failed: ', err);
     });
   });
+
+  // Install - adding event listener for installing sw
+  self.addEventListener('install', (event) => {
+    // perform actions required on installing
+  });
+
 }

@@ -42,23 +42,7 @@ module.exports = (env = '') => {
     plugins: plugins({ production: true, browser: false })
   };
 
-  const swProdTranspiler = {
-    devtool: 'sourcemap',
-    context: PATHS.app,
-    entry: { serviceWorker: '../sw' },
-    target: 'node',
-    node,
-    output: {
-      path: PATHS.root,
-      filename: '[name].js',
-      publicPath: PATHS.root
-    },
-    module: { rules: rules({ production: true, browser: false }) },
-    resolve,
-    plugins: plugins({ production: true, browser: false })
-  };
-
-  const swDevTranspiler = {
+  const swTranspiler = {
     devtool: 'sourcemap',
     context: PATHS.app,
     entry: { serviceWorker: '../sw' },
@@ -92,7 +76,6 @@ module.exports = (env = '') => {
   };
 
   const prodBrowserRender = {
-    devtool: 'cheap-module-source-map',
     context: PATHS.app,
     entry: { app: ['./client'] },
     node,
@@ -122,8 +105,8 @@ module.exports = (env = '') => {
     plugins: plugins({ production: false, browser: true })
   };
 
-  const prodConfig = [prodBrowserRender, prodServerRender, swProdTranspiler];
-  const devConfig = isBrowser ? devBrowserRender : [ devServerRender, swDevTranspiler];
+  const prodConfig = [prodBrowserRender, prodServerRender, swTranspiler];
+  const devConfig = isBrowser ? devBrowserRender : [ devServerRender, swTranspiler];
   const configuration = isProduction ? prodConfig : devConfig;
 
   return configuration;
