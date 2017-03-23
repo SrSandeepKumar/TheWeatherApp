@@ -6,7 +6,7 @@ const path = require('path');
  * Read more: https://nodejs.org/api/process.html#process_process_cwd
  */
 const CURRENT_WORKING_DIR = process.cwd();
-
+console.log(path.resolve(CURRENT_WORKING_DIR, 'app'));
 module.exports = {
   root: path.resolve(CURRENT_WORKING_DIR),
   app: path.resolve(CURRENT_WORKING_DIR, 'app'),
