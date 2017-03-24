@@ -5,7 +5,7 @@ import { title, meta, link } from './assets';
 
 const App = props => (
   <Page title={title} meta={meta} link={link}>
-      <AppContainer {...props} />
+    <AppContainer {...props} />
   </Page>
 );
 

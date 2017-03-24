@@ -13,6 +13,7 @@ if ('serviceWorker' in navigator) {
   // Install - adding event listener for installing sw
   self.addEventListener('install', (event) => {
     // perform actions required on installing
+    debugger;
     console.log(event);
   });
 
