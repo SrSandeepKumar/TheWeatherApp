@@ -29,7 +29,7 @@ class Weather extends Component {
     debugger;
     return (
       <Page {...this.getMetaData()}>
-        <WeatherContainer props={this.props.route.fetchData()} />
+        <WeatherContainer />
       </Page>
     );
   }

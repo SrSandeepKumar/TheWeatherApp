@@ -1,15 +1,16 @@
 import { weatherService } from '../services';
 
 const fetchData = () => {
-  debugger;
   return weatherService.getWeather()
-  .then((res, arg1, arg2, arg3) => {
-    debugger;
-    console.log(arg1, arg2, arg3);
+  .then(res => {
+    if (res.status === 200) {
+      return {data: res.data};
+    } else {
+      // handle sending error message.
+    }
     return res.data;
   })
   .catch((err) => {
-      debugger;
     console.log(err);
   });
 };
