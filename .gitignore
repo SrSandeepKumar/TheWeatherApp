@@ -6,7 +6,7 @@ public
 compiled
 .swp
 .vscode
-config/secrets.js
+config/
 theweatherapp/
 serviceWorker.js
 serviceWorker.js.map

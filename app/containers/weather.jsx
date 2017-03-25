@@ -15,7 +15,11 @@ const fetchWeatherInfo = data => data && data.weather.map((w, index) => (
 const formatOtherInfo = (list) => list && list.map((data, index) => {
     return (
       <ul key={index}>
-        <li>{days[new Date(data.dt_txt).getDay()]} : {new Date(data.dt_txt).getDate()} - {new Date(data.dt_txt).getMonth() + 1} </li>
+        <li>
+          <span> {days[new Date(data.dt_txt).getDay()]} :</span>
+          <span> {new Date(data.dt_txt).getDate()} - {new Date(data.dt_txt).getMonth() + 1} </span>
+          <span> ({new Date(data.dt_txt).getHours()}:{new Date(data.dt_txt).getMinutes()}) </span>
+        </li>
         {fetchWeatherInfo(data)}
       </ul>
     )
@@ -26,7 +30,7 @@ const weatherUI = ({ data }) => {
   return (
     <div>
       <p>{city.name} </p>
-      {formatOtherInfo(list)}
+      <ul> {formatOtherInfo(list)} </ul>
     </div>
 
   );
