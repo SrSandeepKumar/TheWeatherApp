@@ -5,7 +5,8 @@ import { openweathermapAPIKey } from '../../config/secrets';
 console.log('***** Secrete key for openweatherapi ', openweathermapAPIKey);
 
 const service = {
-  getWeather: () => axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=13.1340&lon=77.4788&appid=${openweathermapAPIKey}`)
+  getForecast: () => axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=13.1340&lon=77.4788&units=metric&appid=${openweathermapAPIKey}`),
+  getWeather: () => axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=13.1340&lon=77.4788&units=metric&appid=${openweathermapAPIKey}`)
 };
 
 export default service;

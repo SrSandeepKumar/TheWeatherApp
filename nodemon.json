@@ -8,6 +8,5 @@
       "webpack.config.js",
       "postcss.config.js"
     ],
-    // inspect will give a chrome-devtools url, works if you are running node =>v.7.*
     "exec": "npm run build:dev && node --inspect compiled/server.dev.js"
 }
