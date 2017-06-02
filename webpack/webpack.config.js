@@ -45,7 +45,7 @@ module.exports = (env = '') => {
   const swTranspiler = {
     devtool: 'sourcemap',
     context: PATHS.app,
-    entry: { serviceWorker: 'sw' },
+    entry: { serviceWorker: 'sw', hotMiddlewareScript },
     target: 'node',
     node,
     output: {

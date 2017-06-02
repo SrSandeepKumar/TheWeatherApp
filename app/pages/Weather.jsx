@@ -26,7 +26,6 @@ class Weather extends Component {
   }
 
   render() {
-    debugger;
     return (
       <Page {...this.getMetaData()}>
         <WeatherContainer />
@@ -36,4 +35,3 @@ class Weather extends Component {
 }
 
 export default Weather;
-

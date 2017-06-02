@@ -29,7 +29,6 @@ const fetchMainWeatherInfo = (data) => {
   if (data) {
     const mainEntities = Object.keys(data);
     return mainEntities.map((val, index) => {
-      debugger;
       return (
         <li key={index}> {val}: {data[val]} </li>
       );
@@ -37,9 +36,7 @@ const fetchMainWeatherInfo = (data) => {
   } return null;
 };
 
-
 const weatherUI = ({ data }) => {
-  debugger;
   const { name = '', list = [] } = data;
   return (
     <div>
@@ -48,7 +45,6 @@ const weatherUI = ({ data }) => {
       <ul>{fetchMainWeatherInfo(data.main)} </ul>
       <ul> {formatOtherInfo(list)} </ul>
     </div>
-
   );
 };
 
